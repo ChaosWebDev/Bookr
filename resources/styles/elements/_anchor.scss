@@ -1,0 +1,12 @@
+a {
+    color: inherit;
+    text-decoration: none;
+
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background: var(--navBGHover);
+        color: var(--navFGHover);
+        cursor: pointer;
+    }
+}
