@@ -22,16 +22,12 @@ class UserObserver
             $disk->makeDirectory($basePath);
         }
 
-        // Since info is a casted JSON object, just update the property
         $user->info = (object) array_merge((array) $user->info, [
-            'path' => $disk->path($basePath),
+            'path' => $basePath, // store relative path, not absolute
             'books' => [],
         ]);
 
-        // Use updateQuietly() to avoid recursion
-        $user->updateQuietly([
-            'info' => $user->info,
-        ]);
+        $user->updateQuietly(['info' => $user->info]);
     }
 
     /**
