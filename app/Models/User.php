@@ -12,8 +12,6 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name',
-        'username',
         'email',
         'password',
     ];
@@ -26,5 +24,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'info' => 'object',
     ];
+
+    // * ATTRIBUTES * //
+    public function getBooksAttribute()
+    {
+        return $this->info?->books ?? collect();
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->info?->path ?? null;
+    }
 }
