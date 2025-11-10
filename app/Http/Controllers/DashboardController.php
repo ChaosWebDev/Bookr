@@ -17,10 +17,12 @@ class DashboardController extends Controller
         $this->pageTitle = "Bookr - Dashboard";
 
         $this->user = Auth::user();
+        $this->getBooks();
     }
 
-    protected function getBooks() {
-        
+    protected function getBooks()
+    {
+        $this->books = $this->user->info?->books ?? [];
     }
 
     public function render()
