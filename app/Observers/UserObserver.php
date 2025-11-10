@@ -24,7 +24,7 @@ class UserObserver
 
         $user->info = (object) array_merge((array) $user->info, [
             'path' => $basePath, // store relative path, not absolute
-            'books' => [],
+            'books' => $user->info?->books ?? []
         ]);
 
         $user->updateQuietly(['info' => $user->info]);
