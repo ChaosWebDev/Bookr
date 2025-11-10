@@ -3,7 +3,11 @@
     "name": "chaoswebdev/laravel-kit",
     "type": "project",
     "description": "My skeleton application for the Laravel framework. Includes SCSS stylings (basic) and Livewire.",
-    "keywords": ["laravel", "framework","chaoswd"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "chaoswd"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -20,6 +24,9 @@
         "phpunit/phpunit": "^11.5.3"
     },
     "autoload": {
+        "files": [
+            "app/Http/Helpers/helpers.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
