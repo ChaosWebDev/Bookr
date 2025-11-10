@@ -21,10 +21,6 @@ class UserSeeder extends Seeder
             ],
         ]);
 
-        $str = json_encode($user);
-
-        $this->command->info("Created user: {$str}");
-
         // User::factory(10)->create();
     }
 }
