@@ -2,21 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+// use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public $title;
+    public ?User $user;
+    public $pageTitle;
+    public $books = [];
 
     public function __construct()
     {
-        $this->title = "Bookr - Dashboard";
+        $this->pageTitle = "Bookr - Dashboard";
+
+        $this->user = Auth::user();
+    }
+
+    protected function getBooks() {
+        
     }
 
     public function render()
     {
         return view('dashboard', [
-            'title' => $this->title ?? null,
+            'title' => $this->pageTitle ?? null,
+            'books' => $this->books ?? [],
         ]);
     }
 }
