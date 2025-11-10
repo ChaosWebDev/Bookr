@@ -38,8 +38,6 @@ html {
         background: var(--bodyBG);
         color: var(--bodyFG);
 
-        :where(nav, footer, header) {}
-
         :where(nav) {
             @extend .column;
             border-right: $border;
@@ -49,6 +47,15 @@ html {
 
             :where(a) {
                 padding: 5px 10px;
+                display: inline-block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            :where(hr) {
+                width: 100%;
+                margin-block: 1rem;
             }
         }
 

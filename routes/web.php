@@ -8,7 +8,5 @@ require_once __DIR__ . "/_dev.php";
 
 Route::get('/', [DashboardController::class, 'render'])->name('dashboard');
 
-Route::prefix('book')->name('book.')->group(function () {
-    Route::get('/create', fn() => 'Placeholder')->name('create');
-    Route::get('/{path}', fn() => 'Placeholder')->name('edit');
-});
+Route::get('/create', fn() => 'Placeholder')->name('book.create');
+Route::get('/{userhash}/{bookhash}', fn($userhash, $bookhash) => "Editing book {$bookhash} for user {$userhash}")->name('book.edit');

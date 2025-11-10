@@ -14,9 +14,7 @@ class UserObserver
     {
         $disk = Storage::disk('books');
 
-        $hash = md5(strtolower(trim($user->email)));
-        $chunks = str_split($hash, 3);
-        $basePath = implode('/', array_slice($chunks, 0, 3));
+        $basePath = md5(strtolower(trim($user->email)));
 
         if (!$disk->exists($basePath)) {
             $disk->makeDirectory($basePath);
