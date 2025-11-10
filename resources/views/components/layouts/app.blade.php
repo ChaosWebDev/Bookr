@@ -9,7 +9,7 @@
     @vite(['resources/styles/app.scss', 'resources/scripts/app.js'])
 </head>
 
-<body class="{{ $bodyClass }}">
+<body class="{{ session('body-class', 'dark') }}">
     {{ $slot }}
 </body>
 

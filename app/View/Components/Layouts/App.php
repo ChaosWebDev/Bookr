@@ -11,10 +11,9 @@ class App extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public ?string $title, public ?string $bodyClass)
+    public function __construct(public $title = null)
     {
-        $this->title ?: config('app.name');
-        $this->bodyClass ?: 'dark';
+        $this->title = $this->title ?: config('app.name');
     }
 
     /**
@@ -26,7 +25,6 @@ class App extends Component
             'components.layouts.app',
             [
                 'title' => $this->title,
-                'bodyClass' => $this->bodyClass,
             ]
         );
     }
